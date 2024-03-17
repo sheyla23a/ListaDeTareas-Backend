@@ -12,7 +12,6 @@ export const listaTareas = async (req, res) => {
 
 export const crearTarea = async(req,res)=>{
   try{
-   console.log(req.body)
    const tareaNueva= new Tarea(req.body);
    await tareaNueva.save();
    res.status(201).json({mensaje:'La tarea fue creada correctamente'})
@@ -24,7 +23,6 @@ export const crearTarea = async(req,res)=>{
 
 export const obtenerTarea = async (req,res)=>{
   try{
-   console.log(req.params.id)
    const tareaBuscada = await Tarea.findById(req.params.id);
    res.status(200).json(tareaBuscada);
   }catch(error){
